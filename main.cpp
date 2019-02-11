@@ -31,7 +31,9 @@ void GeneralTest()
     database.show();
     database.sortBySurname();
     database.show();
-    database.remove(13);
+    database.removeByIndex(13);
+    database.show();
+    database.removeByPesel("01234567891");
     database.show();
     std::cout << std::endl;
 }
@@ -44,9 +46,9 @@ void GenerateTest()
 
 int main()
 {
-    GenerateTest();
+//    GenerateTest();
 //    PersonTest();
-//    GeneralTest();
+    GeneralTest();
 //    SearchingTest();
     return 0;
 }

@@ -45,7 +45,7 @@ void Database::sortBySurname()
     };
     std::sort(allPeople.begin(),allPeople.end(), ComparerSurname());
 }
-void Database::remove(int nr_index)
+void Database::removeByIndex(int nr_index)
 {
     int i;
     for( i = 0; i < allPeople.size(); ++i )
@@ -54,6 +54,15 @@ void Database::remove(int nr_index)
             allPeople.erase(allPeople.begin() + i);
             break;
         }
+}
+void Database::removeByPesel(const std::string & pesel)
+{
+    auto sought_pesel = find_if(allPeople.begin(),allPeople.end(), [&pesel](const Student & student)
+    {
+        return student.getPesel() == pesel;
+    });
+    if (sought_pesel != allPeople.end() )
+       allPeople.erase( sought_pesel );
 }
 std::vector<Student> Database::findBySurname(const std::string & surname)
 {
@@ -121,7 +130,6 @@ void Database::generate( int n = 40 )
         allPeople.emplace_back( random_student );
     }
 }
-
 Database::Database()
 {
 }

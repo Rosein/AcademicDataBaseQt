@@ -18,7 +18,8 @@ public:
     void sortByIndex();
     void sortByPesel();
     void sortBySurname();
-    void remove(int);
+    void removeByIndex(int);
+    void removeByPesel(const std::string &);
     std::vector<Student> findBySurname(const std::string & surname);
     StudentPtr findByPesel(const std::string & nr);
     void generate(int);
