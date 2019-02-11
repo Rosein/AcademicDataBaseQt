@@ -1,4 +1,4 @@
- #include "headers/Database.h"
+#include "headers/Database.h"
 
 void PersonTest()
 {
@@ -43,12 +43,23 @@ void GenerateTest()
     database.generate(10);
     database.show();
 }
-
+void PeselTest()
+{
+    if(Person("Robert", "Traba", "Codeskulowa 69", Sex::male, Pesel("44051401358")).isPeselValid() == false)
+        std::cout << "plec zgodna, kontrolna nie" << std::endl;
+    if(Person("Robert", "Traba", "Codeskulowa 69", Sex::male, Pesel("44051401359")).isPeselValid() == true)
+        std::cout << "plec zgodna, kontrolna tez" << std::endl;
+    if(Person ("Robert", "Traba", "Codeskulowa 69", Sex::male, Pesel("44051401342")).isPeselValid() == false)
+        std::cout << "plec niezgodna, kontrolna zgodna" << std::endl;
+    if(Person ("Robert", "Traba", "Codeskulowa 69", Sex::male, Pesel("44051401321")).isPeselValid() == false)
+        std::cout << "plec niezgodna, kontrolna tez" << std::endl;
+}
 int main()
 {
+    PeselTest();
 //    GenerateTest();
 //    PersonTest();
-    GeneralTest();
+//    GeneralTest();
 //    SearchingTest();
     return 0;
 }

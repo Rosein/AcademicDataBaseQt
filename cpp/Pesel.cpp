@@ -15,6 +15,10 @@ int Pesel::controlCoefficient(int i)
     case 3: return  1;
     }
 }
+int Pesel::giveSexDigit()
+{
+    return parseToInteger(nr.at(9));
+}
 int Pesel::giveControlDigit()
 {
     
@@ -26,11 +30,9 @@ int Pesel::giveControlDigit()
     return control_sum % 10 ;
 }
 
-bool Pesel::isValid()
+bool Pesel::isControlDigitValid()
 {
-    bool isValid = true;
-    isValid = isValid && giveControlDigit() == parseToInteger( nr[nr.size() - 1] );
-    return isValid;
+    return giveControlDigit() == parseToInteger( nr[nr.size() - 1] );
 }
 
 std::ostream& operator<<(std::ostream& os, const Pesel & p)

@@ -6,9 +6,10 @@ class Pesel
     std::string nr;
     int parseToInteger(char);
     int controlCoefficient(int);
-public:
-    bool isValid();
     int giveControlDigit();
+public:
+    bool isControlDigitValid();
+    int giveSexDigit();
     friend bool operator==(Pesel, Pesel);
     friend bool operator<=(Pesel, Pesel);
     friend std::ostream& operator<<(std::ostream&, const Pesel & p);

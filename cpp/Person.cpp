@@ -18,6 +18,22 @@ bool operator==(Person& first , Person& second)
 {
 	return first.getPesel() == second.getPesel();
 }
+bool Person::isSexDigitValid()
+{
+    if( sex == Sex::male )
+        if( getPesel().giveSexDigit() % 2 == 1 )
+            return true;
+    if( sex == Sex::female )
+        if( getPesel().giveSexDigit() % 2 == 0 )
+            return true;
+    return false;
+}
+bool Person::isPeselValid()
+{
+    bool isValid = pesel.isControlDigitValid();
+    isValid = isValid && isSexDigitValid();
+    return isValid;
+}
 Person::Person(const Person & c)
     : name( c.getName()),
          surname( c.getSurname() ),

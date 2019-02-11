@@ -64,6 +64,12 @@ void Database::removeByPesel(const std::string & pesel)
     if (sought_pesel != allPeople.end() )
        allPeople.erase( sought_pesel );
 }
+void Database::setAddressIndicatedByPesel( const std::string & new_address, const std::string & pesel )
+{
+    auto sought_student = findByPesel( pesel );
+    if( sought_student != nullptr )
+        sought_student->setAddress( new_address );
+}
 std::vector<Student> Database::findBySurname(const std::string & surname)
 {
     std::vector<Student> founded;
