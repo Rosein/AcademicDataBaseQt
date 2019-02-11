@@ -28,7 +28,6 @@ public:
     std::string getAddress() const { return address; }
     Sex getSex() const { return sex; }
     Pesel getPesel() const { return pesel; }
-    virtual bool operator<=(const Person &);
     friend  bool operator==(const Person&, const Person&);
 
 };

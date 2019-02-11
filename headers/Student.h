@@ -6,7 +6,6 @@ class Student :
     int index;
 public:
     int getIndex() const { return index; }
-    //	bool operator<=(const Student&);
     bool operator==(const Student&);
     Student& operator=(const Student&);
     friend std::ostream& operator<<(std::ostream& os, const Student & c);

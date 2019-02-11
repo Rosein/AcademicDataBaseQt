@@ -9,6 +9,7 @@ class Pesel
 public:
     bool isValid();
     friend bool operator==(Pesel, Pesel);
+    friend bool operator<=(Pesel, Pesel);
     friend std::ostream& operator<<(std::ostream&, const Pesel & p);
     Pesel(const std::string & nr) : nr(nr) {}
     ~Pesel() {}

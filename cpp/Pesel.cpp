@@ -34,3 +34,7 @@ bool operator==(Pesel first, Pesel second)
 {
    	return first.nr == second.nr;
 }
+bool operator<=(Pesel first, Pesel second)
+{
+    return first.nr <= second.nr;
+}
