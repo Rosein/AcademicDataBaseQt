@@ -35,8 +35,16 @@ void GeneralTest()
     database.show();
     std::cout << std::endl;
 }
+void GenerateTest()
+{
+    Database database;
+    database.generate(10);
+    database.show();
+}
+
 int main()
 {
+    GenerateTest();
 //    PersonTest();
 //    GeneralTest();
 //    SearchingTest();

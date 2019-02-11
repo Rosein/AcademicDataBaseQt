@@ -15,7 +15,7 @@ int Pesel::controlCoefficient(int i)
     case 3: return  1;
     }
 }
-bool Pesel::isValid()
+int Pesel::giveControlDigit()
 {
     
     if (nr.empty() || nr.size() != 11)
@@ -23,7 +23,14 @@ bool Pesel::isValid()
     int control_sum = 0;
     for (auto i = 0; i < nr.size() - 1; ++i)
         control_sum += controlCoefficient(i) * parseToInteger(nr[i]);
-    return control_sum % 10 == parseToInteger(nr[nr.size() - 1]);
+    return control_sum % 10 ;
+}
+
+bool Pesel::isValid()
+{
+    bool isValid = true;
+    isValid = isValid && giveControlDigit() == parseToInteger( nr[nr.size() - 1] );
+    return isValid;
 }
 
 std::ostream& operator<<(std::ostream& os, const Pesel & p)

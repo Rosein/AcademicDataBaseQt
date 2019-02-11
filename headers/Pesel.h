@@ -8,6 +8,7 @@ class Pesel
     int controlCoefficient(int);
 public:
     bool isValid();
+    int giveControlDigit();
     friend bool operator==(Pesel, Pesel);
     friend bool operator<=(Pesel, Pesel);
     friend std::ostream& operator<<(std::ostream&, const Pesel & p);

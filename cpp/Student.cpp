@@ -28,9 +28,9 @@ Student& Student::operator=( const Student & c)
     pesel = c.getPesel();
     return *this;
 }
-Student::Student(const char name[],
-                 const char surname[],
-                 const char address[],
+Student::Student(const std::string & name,
+                 const std::string & surname,
+                 const std::string & address,
                  Sex sex,
                  Pesel pesel, 
                  int index)

@@ -21,9 +21,8 @@ public:
     void remove(int);
     std::vector<Student> findBySurname(const std::string & surname);
     StudentPtr findByPesel(const std::string & nr);
-    /*
-    void generate();
-    void save();
+    void generate(int);
+    /*void save();
     void load();
 	
     void modifySalary(Employee&, int);
