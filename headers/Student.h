@@ -19,6 +19,5 @@ public:
     Student(const Student & c);
     Student(Student&&) = default;
     ~Student();
-
 };
 

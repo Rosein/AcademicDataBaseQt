@@ -23,6 +23,7 @@ public:
     Person(const Person &);
 
     virtual ~Person() {}
+
     void setAddress(const std::string & new_address) { address = new_address; }
     std::string getName() const { return name; }
     std::string getSurname() const { return surname; }

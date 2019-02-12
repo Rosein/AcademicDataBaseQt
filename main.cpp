@@ -65,6 +65,7 @@ void LoadTest()
     database.load("in.txt");
     database.show();
 }
+//ZMIANA//
 int main()
 {
     LoadTest();
