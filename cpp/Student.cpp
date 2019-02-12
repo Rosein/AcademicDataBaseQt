@@ -1,5 +1,6 @@
 #include "headers/Student.h"
 #include <iomanip>
+
 bool Student::operator==(const Student& other)
 {
 	   return getIndex() == other.getIndex();
@@ -37,7 +38,6 @@ std::istream& operator>>(std::istream& is, Student & s)
     is >> index;
     s.index = index;
 }
-
 Student& Student::operator=( const Student & c)
 {
     name = c.getName();
@@ -56,12 +56,9 @@ Student::Student(const std::string & name,
                  int index)
 	: Person(name, surname, address, sex, pesel),
 	  index(index)
-{
-}
+{}
 Student::Student(const Student & c) : Person(c),
 									  index(c.getIndex())
-{
-}
-
+{}
 Student::~Student()
 {}

@@ -170,7 +170,6 @@ std::ostream& operator<<(std::ostream& os, const Database & database)
     os << std::endl;
     return os;
 }
-
 Database::Database()
 {
 }

@@ -29,15 +29,9 @@ int Pesel::giveControlDigit()
         control_sum += controlCoefficient(i) * parseToInteger(nr[i]);
     return control_sum % 10 ;
 }
-
 bool Pesel::isControlDigitValid()
 {
     return giveControlDigit() == parseToInteger( nr[nr.size() - 1] );
-}
-
-std::ostream& operator<<(std::ostream& os, const Pesel & p)
-{
-   	return os << p.nr;
 }
 bool operator==(Pesel first, Pesel second)
 {
@@ -46,4 +40,8 @@ bool operator==(Pesel first, Pesel second)
 bool operator<=(Pesel first, Pesel second)
 {
     return first.nr <= second.nr;
+}
+std::ostream& operator<<(std::ostream& os, const Pesel & p)
+{
+    return os << p.nr;
 }
