@@ -1,6 +1,7 @@
 #include "headers/Database.h"
 #include <algorithm>
 #include <random>
+#include <fstream>
 
 void Database::add(Student && student)
 {
@@ -8,9 +9,10 @@ void Database::add(Student && student)
 }
 void Database::show()
 {
-    for (auto & it : allPeople)
-	       std::cout << it << std::endl;
-    std::cout << std::endl;
+    std::cout << *this;
+//    for (auto & it : allPeople)
+//	       std::cout << it << std::endl;
+//    std::cout << std::endl;
 }
 void Database::sortByIndex()
 {
@@ -135,6 +137,22 @@ void Database::generate( int n = 40 )
         Student random_student (name_, surname_, address_, sex_, pesel_, index_);
         allPeople.emplace_back( random_student );
     }
+}
+void Database::save(const std::string & file_name)
+{
+    std::ofstream ofs( file_name, std::ios::out);
+    if(ofs.is_open())
+    {
+        ofs << *this;
+        ofs.close();
+    }
+}
+std::ostream& operator<<(std::ostream& os, Database database)
+{
+    for (auto & it : database.allPeople)
+           os << it << std::endl;
+    os << std::endl;
+    return os;
 }
 Database::Database()
 {

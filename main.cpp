@@ -1,5 +1,5 @@
 #include "headers/Database.h"
-
+#include <fstream>
 void PersonTest()
 {
        Person person("Robert", "Traba", "Codeskulowa 69", Sex::male, Pesel("01234567891"));
@@ -54,9 +54,15 @@ void PeselTest()
     if(Person ("Robert", "Traba", "Codeskulowa 69", Sex::male, Pesel("44051401321")).isPeselValid() == false)
         std::cout << "plec niezgodna, kontrolna tez" << std::endl;
 }
+void SaveTest(){
+    Database database;
+    database.generate(10);
+    database.save("out.txt");
+}
 int main()
 {
-    PeselTest();
+    SaveTest();
+//    PeselTest();
 //    GenerateTest();
 //    PersonTest();
 //    GeneralTest();

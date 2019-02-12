@@ -12,7 +12,7 @@ class Database
 {
     std::vector<Student> allPeople;
 public:
-    //	std::ostream& operator<<(std::ostream& os);
+
     void add(Student && student);
     void show();
     void sortByIndex();
@@ -24,6 +24,11 @@ public:
     std::vector<Student> findBySurname(const std::string & surname);
     StudentPtr findByPesel(const std::string & nr);
     void generate(int);
+    void save(const std::string &);
+
+    friend std::ostream& operator<<(std::ostream&, Database);
+    std::istream& operator>>(std::istream& os);
+
     /*void save();
     void load();
 	
