@@ -25,13 +25,10 @@ public:
     StudentPtr findByPesel(const std::string & nr);
     void generate(int);
     void save(const std::string &);
+    void load(const std::string &);
+    friend std::ostream& operator<<(std::ostream&, const Database &);
 
-    friend std::ostream& operator<<(std::ostream&, Database);
-    std::istream& operator>>(std::istream& os);
-
-    /*void save();
-    void load();
-	
+    /*
     void modifySalary(Employee&, int);
     void modifyAddress(Person&, std::string);
     bool isValid(Pesel);*/

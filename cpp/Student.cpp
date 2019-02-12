@@ -18,6 +18,26 @@ std::ostream& operator<<(std::ostream& os, const Student & s)
     os << std::setw(WIDTH) << s.index;
     return os;
 }
+std::istream& operator>>(std::istream& is, Student & s)
+{
+    std::string broker;
+    is >> broker;
+    s.name = broker;
+    is >> broker;
+    s.surname = broker;
+    is >> broker;
+    s.address = broker;
+    is >> broker;
+    s.address += " " + broker;
+    is >> broker;
+    s.sex = ( broker[0] == 'f' ) ? Sex::female : Sex::male;
+    is >> broker;
+    s.pesel = Pesel(broker);
+    int index;
+    is >> index;
+    s.index = index;
+}
+
 Student& Student::operator=( const Student & c)
 {
     name = c.getName();

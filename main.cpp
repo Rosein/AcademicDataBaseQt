@@ -59,9 +59,16 @@ void SaveTest(){
     database.generate(10);
     database.save("out.txt");
 }
+void LoadTest()
+{
+    Database database;
+    database.load("in.txt");
+    database.show();
+}
 int main()
 {
-    SaveTest();
+    LoadTest();
+//    SaveTest();
 //    PeselTest();
 //    GenerateTest();
 //    PersonTest();

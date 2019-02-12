@@ -14,7 +14,7 @@ protected:
     Pesel pesel;
     bool isSexDigitValid();
 public:
-    Person() = delete;
+    Person() = default;
     Person( const std::string & name,
             const std::string & surname,
             const std::string & address,

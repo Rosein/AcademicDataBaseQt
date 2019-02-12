@@ -147,13 +147,30 @@ void Database::save(const std::string & file_name)
         ofs.close();
     }
 }
-std::ostream& operator<<(std::ostream& os, Database database)
+void Database::load(const std::string & file_name)
 {
-    for (auto & it : database.allPeople)
+    std::ifstream ifs;
+    ifs.open( file_name, std::ios::in );
+    if( ifs.is_open() )
+    {
+        while(!ifs.eof())
+        {
+            Student s;
+            ifs >> s;
+            if(s.isPeselValid())
+                add( std::move(s) );
+        }
+    }
+    ifs.close();
+}
+std::ostream& operator<<(std::ostream& os, const Database & database)
+{
+    for (const auto & it : database.allPeople)
            os << it << std::endl;
     os << std::endl;
     return os;
 }
+
 Database::Database()
 {
 }

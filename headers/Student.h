@@ -9,6 +9,8 @@ public:
     bool operator==(const Student&);
     Student& operator=(const Student&);
     friend std::ostream& operator<<(std::ostream& os, const Student & c);
+    friend std::istream& operator>>(std::istream& is, Student & a);
+    Student() = default;
     Student(const std::string & name,
             const std::string & surname,
             const std::string & address,

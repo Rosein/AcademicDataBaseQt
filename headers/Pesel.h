@@ -13,6 +13,7 @@ public:
     friend bool operator==(Pesel, Pesel);
     friend bool operator<=(Pesel, Pesel);
     friend std::ostream& operator<<(std::ostream&, const Pesel & p);
+    Pesel() = default;
     Pesel(const std::string & nr) : nr(nr) {}
     ~Pesel() {}
 };

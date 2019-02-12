@@ -34,6 +34,7 @@ bool Person::isPeselValid()
     isValid = isValid && isSexDigitValid();
     return isValid;
 }
+
 Person::Person(const Person & c)
     : name( c.getName()),
          surname( c.getSurname() ),
