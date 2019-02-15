@@ -10,6 +10,7 @@ void Database::add(Student && student)
 void Database::show()
 {
     std::cout << *this;
+
 //    for (auto & it : allPeople)
 //	       std::cout << it << std::endl;
 //    std::cout << std::endl;

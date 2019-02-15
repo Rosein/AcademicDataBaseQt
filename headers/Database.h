@@ -7,10 +7,11 @@
 
 //using PersonPtr = std::unique_ptr<Person>;
 using StudentPtr = std::shared_ptr<Student>;
+using Students = std::vector<Student>;
 
 class Database
 {
-    std::vector<Student> allPeople;
+    Students allPeople;
 public:
 
     void add(Student && student);
