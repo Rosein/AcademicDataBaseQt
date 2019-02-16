@@ -5,39 +5,23 @@ bool Student::operator==(const Student& other)
 {
 	   return getIndex() == other.getIndex();
 }
-std::ostream& operator<<(std::ostream& os, const Student & s)
+
+void Student::print(std::ostream& os)
 {
     const int WIDTH = 12;
-    os << std::left << std::setw(WIDTH) << s.name
-       << std::setw(WIDTH) << s.surname
-       << std::setw(2 * WIDTH) << s.address;
-    if (s.sex == Sex::female)
-        os << std::setw(WIDTH) << "female";
-    else
-        os << std::setw(WIDTH) << "male";
-    os << std::setw(WIDTH) << s.pesel;
-    os << std::setw(WIDTH) << s.index;
-    return os;
+    const std::string EMPTY_FIELD = " ";
+
+    os  << std::left
+        << std::setw(WIDTH/2) << getType()
+        << std::setw(WIDTH)   << name
+        << std::setw(WIDTH)   << surname
+        << std::setw(WIDTH*2) << address
+        << std::setw(WIDTH)   << ( (sex == Sex::female) ? "female" : "male" )
+        << std::setw(WIDTH)   << pesel
+        << std::setw(WIDTH)   << index
+        << std::setw(WIDTH)   << EMPTY_FIELD;
 }
-std::istream& operator>>(std::istream& is, Student & s)
-{
-    std::string broker;
-    is >> broker;
-    s.name = broker;
-    is >> broker;
-    s.surname = broker;
-    is >> broker;
-    s.address = broker;
-    is >> broker;
-    s.address += " " + broker;
-    is >> broker;
-    s.sex = ( broker[0] == 'f' ) ? Sex::female : Sex::male;
-    is >> broker;
-    s.pesel = Pesel(broker);
-    int index;
-    is >> index;
-    s.index = index;
-}
+
 Student& Student::operator=( const Student & c)
 {
     name = c.getName();

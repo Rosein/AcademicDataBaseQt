@@ -1,15 +1,31 @@
+#pragma once
 #include "headers/Employee.h"
+#include <iomanip>
 
-Employee::Employee( const char name[],
-				                const char surname[],
-				                const char address[],
+Employee::Employee( const std::string & name,
+                                const std::string & surname,
+                                const std::string & address,
 				                Sex sex,
-				                Pesel pesel) 
-    : Person(name,surname,address,sex,pesel)
+                                Pesel pesel,
+                                unsigned int salary)
+    : Person(name,surname,address,sex,pesel), salary(salary)
 {
 }
+void Employee::print(std::ostream& os)
+{
+    const int WIDTH = 12;
+    const std::string EMPTY_FIELD = " ";
 
-
+    os  << std::left
+        << std::setw(WIDTH/2) << this->getType()
+        << std::setw(WIDTH)   << name
+        << std::setw(WIDTH)   << surname
+        << std::setw(WIDTH*2) << address
+        << std::setw(WIDTH)   << ( (sex == Sex::female) ? "female" : "male" )
+        << std::setw(WIDTH)   << pesel
+        << std::setw(WIDTH)   << EMPTY_FIELD    // index
+        << std::setw(WIDTH)   << salary;
+}
 Employee::~Employee()
 {
 }

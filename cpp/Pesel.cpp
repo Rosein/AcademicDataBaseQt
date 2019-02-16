@@ -25,7 +25,7 @@ int Pesel::giveControlDigit()
     if (nr.empty() || nr.size() != 11)
         return false;
     int control_sum = 0;
-    for (auto i = 0; i < nr.size() - 1; ++i)
+    for (auto i = 0u; i < nr.size() - 1; ++i)
         control_sum += controlCoefficient(i) * parseToInteger(nr[i]);
     return control_sum % 10 ;
 }

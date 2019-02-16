@@ -5,12 +5,15 @@ class Employee :
 {
     unsigned int salary;
 public:
-    int getSalary()const { return salary; }
-    void setSalary(int new_salary) { salary = new_salary; }
-    Employee(const char name[],
-			          const char surname[],
-			          const char address[],
+    char getType() const { return 'E'; }
+    unsigned int getSalary()const { return salary; }
+    void setSalary(unsigned int new_salary) { salary = new_salary; }
+    void print(std::ostream& os);
+    Employee(const std::string & name,
+                      const std::string & surname,
+                      const std::string & address,
 			          Sex sex,
-			          Pesel pesel);
+                      Pesel pesel,
+                      unsigned int salary);
     ~Employee();
 };

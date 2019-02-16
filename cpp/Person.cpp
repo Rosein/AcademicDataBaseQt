@@ -1,3 +1,4 @@
+#pragma once
 #include "headers/Person.h"
 #include <iomanip>
 
@@ -21,16 +22,15 @@ bool operator==(Person& first , Person& second)
 {
     return first.getPesel() == second.getPesel();
 }
-std::ostream& operator<<(std::ostream& os, const Person & p)
+void Person::print(std::ostream& os)
 {
     const int WIDTH = 12;
     os  << std::left
-        << std::setw(WIDTH)   << p.name
-        << std::setw(WIDTH)   << p.surname
-        << std::setw(WIDTH*2) << p.address
-        << std::setw(WIDTH)   << ( (p.sex == Sex::female) ? "female" : "male" )
-        << std::setw(WIDTH)   << p.pesel;
-    return os;
+        << std::setw(WIDTH)   << name
+        << std::setw(WIDTH)   << surname
+        << std::setw(WIDTH*2) << address
+        << std::setw(WIDTH)   << ( (sex == Sex::female) ? "female" : "male" )
+        << std::setw(WIDTH)   << pesel;
 }
 
 Person::Person(const Person & c)
