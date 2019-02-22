@@ -5,9 +5,9 @@ class Employee :
 {
     unsigned int salary;
 public:
-    char getType() const { return 'E'; }
-    unsigned int getSalary()const { return salary; }
-    void setSalary(unsigned int new_salary) { salary = new_salary; }
+    char getType() const;
+    unsigned int getSalary() const;
+    void setSalary(unsigned int new_salary);
     void print(std::ostream& os);
     Employee(const std::string & name,
                       const std::string & surname,

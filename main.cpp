@@ -38,8 +38,11 @@ void GeneralTest()
     database.show();
     database.sortBySalary();
     database.show();
+    std::cout << "Trwa test remove'a" << std::endl;
     database.removeByIndex(13);
+
     database.show();
+    std::cout << "Skonczony test remove'a" << std::endl;
     database.removeByPesel("01234567891");
     database.show();
     std::cout << std::endl;
@@ -75,11 +78,11 @@ void LoadTest()
 
 int main()
 {
-//    LoadTest();
-//    SaveTest();
-//    PeselTest();
-//    GenerateTest();
+    LoadTest();
+    SaveTest();
+    PeselTest();
+    GenerateTest();
     GeneralTest();
-//    SearchingTest();
+    SearchingTest();
     return 0;
 }

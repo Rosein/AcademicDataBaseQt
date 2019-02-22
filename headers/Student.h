@@ -5,9 +5,9 @@ class Student :
 {
     int index;
 public:
-    char getType() const { return 'S'; }
+    char getType() const;
     void setSalary(unsigned int){}
-    int getIndex() const { return index; }
+    int getIndex() const;
     void print(std::ostream& os);
     bool operator==(const Student&);
     Student& operator=(const Student&);
@@ -17,7 +17,6 @@ public:
             const std::string & address,
             Sex sex,
             Pesel pesel, int index );
-    Student(const Student & c);
     Student(Student&&) = default;
     ~Student();
 };

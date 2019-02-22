@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include <memory>
 #include <random>
@@ -41,11 +42,5 @@ public:
     void save(const std::string &);
     void load(const std::string &);
     friend std::ostream& operator<<(std::ostream&, const Database &);
-    Database() = default;
-    ~Database() = default;
-    //bool isValid(Pesel);
-
-
-
 };
 

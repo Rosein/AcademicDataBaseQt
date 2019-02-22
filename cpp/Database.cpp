@@ -58,15 +58,14 @@ void Database::sortBySalary()
 }
 void Database::removeByIndex( int nr_index )
 {
-
+    const int NO_INDEX = 0;
     if( nr_index == NO_INDEX ) return;
-    int i;
-    for( i = 0; i < allPeople.size(); ++i )
-        if ( (allPeople[i])->getIndex() == nr_index)
-        {
-            allPeople.erase(allPeople.begin() + i);
-            break;
-        }
+    auto sought_student = std::find_if( allPeople.begin(), allPeople.end(),
+        [ nr_index ]( const PersonPtr & p ){
+            return p->getIndex() == nr_index;
+    });
+    if ( sought_student != allPeople.end() )
+            allPeople.erase( sought_student );
 }
 void Database::removeByPesel( const std::string & pesel )
 {
@@ -93,7 +92,7 @@ People Database::findBySurname( const std::string & surname )
 {
     People founded;
     copy_if(allPeople.begin(), allPeople.end(), std::back_inserter(founded),
-            [&surname](const PersonPtr & candi)
+            [ &surname ](const PersonPtr & candi)
     {
         return candi->getSurname() == surname;
     });
@@ -102,7 +101,7 @@ People Database::findBySurname( const std::string & surname )
 PersonPtr Database::findByPesel( const std::string & nr )
 {
     auto it = find_if(allPeople.begin(), allPeople.end(),
-            [&nr](const PersonPtr & candi)
+            [ &nr ](const PersonPtr & candi)
     {
         return candi->getPesel() == nr;
     });

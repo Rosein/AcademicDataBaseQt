@@ -5,7 +5,14 @@ bool Student::operator==(const Student& other)
 {
 	   return getIndex() == other.getIndex();
 }
-
+char Student::getType() const
+{
+    return 'S';
+}
+int Student::getIndex() const
+{
+    return index;
+}
 void Student::print(std::ostream& os)
 {
     const int WIDTH = 12;
@@ -22,16 +29,6 @@ void Student::print(std::ostream& os)
         << std::setw(WIDTH)   << EMPTY_FIELD;
 }
 
-Student& Student::operator=( const Student & c)
-{
-    name = c.getName();
-    surname = c.getSurname();
-    address = c.getAddress();
-    sex = c.getSex();
-    index = c.getIndex();
-    pesel = c.getPesel();
-    return *this;
-}
 Student::Student(const std::string & name,
                  const std::string & surname,
                  const std::string & address,
@@ -40,9 +37,6 @@ Student::Student(const std::string & name,
                  int index)
 	: Person(name, surname, address, sex, pesel),
 	  index(index)
-{}
-Student::Student(const Student & c) : Person(c),
-									  index(c.getIndex())
 {}
 Student::~Student()
 {}
