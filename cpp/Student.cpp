@@ -1,5 +1,4 @@
 #include "headers/Student.h"
-#include <iomanip>
 
 bool Student::operator==(const Student& other)
 {

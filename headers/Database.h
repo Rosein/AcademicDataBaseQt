@@ -1,10 +1,14 @@
 #pragma once
-
+#include <algorithm>
+#include <fstream>
+#include <iomanip>
 #include <vector>
 #include <memory>
 #include <random>
+
 #include"Student.h"
 #include"Employee.h"
+#include"RandomPerson.h"
 
 using PersonPtr = std::shared_ptr<Person>;
 using People = std::vector<PersonPtr>;
@@ -14,18 +18,7 @@ using Students = std::vector<Student>;
 class Database
 {
     People allPeople;
-
-    Sex getRandomSex();
-    std::string getRandomName( Sex );
-    std::string getRandomSurname();
-    std::string getRandomAddress();
-    std::string getRandomPesel( Sex );
-    int getRandomInt( unsigned int, unsigned int );
-    PersonPtr getRandomStudent();
-    PersonPtr getRandomEmployee();
-
 public:
-
     void add(PersonPtr &&);
     void show();
     void sortByIndex();

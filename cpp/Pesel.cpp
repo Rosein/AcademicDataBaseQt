@@ -9,10 +9,10 @@ int Pesel::controlCoefficient(int i)
     int mod = i % 4;
     switch(mod)
     {
-    case 0: return  9;
-    case 1: return  7;
-    case 2: return  3;
-    case 3: return  1;
+        case 0: return  9;
+        case 1: return  7;
+        case 2: return  3;
+        case 3: return  1;
     }
 }
 int Pesel::giveSexDigit()

@@ -1,6 +1,5 @@
 #pragma once
 #include "headers/Person.h"
-#include <iomanip>
 
 bool Person::isSexDigitValid()
 {

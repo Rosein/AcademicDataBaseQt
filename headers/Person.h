@@ -2,7 +2,10 @@
 #include "Pesel.h"
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <memory>
 enum class Sex { male, female };
+
 class Person
 {
 protected:

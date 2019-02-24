@@ -9,11 +9,13 @@ SOURCES += \
     cpp/Employee.cpp \
     cpp/Person.cpp \
     cpp/Pesel.cpp \
-    cpp/Student.cpp
+    cpp/Student.cpp \
+    cpp/RandomPerson.cpp
 
 HEADERS += \
     headers/Database.h \
     headers/Employee.h \
     headers/Person.h \
     headers/Pesel.h \
-    headers/Student.h
+    headers/Student.h \
+    headers/RandomPerson.h
